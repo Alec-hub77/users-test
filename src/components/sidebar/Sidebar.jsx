@@ -1,6 +1,7 @@
 import './sidebar.scss';
 
-import Button from '../button/Button';
+import Button, { ButtonOutlined } from '../button/Button';
+import { Link } from 'react-router-dom';
 
 const Sidebar = ({ sortData }) => {
   return (
@@ -12,6 +13,7 @@ const Sidebar = ({ sortData }) => {
           <Button onClick={(e) => sortData('city')}>Sort by city</Button>
         </div>
       </div>
+      <Link to="/"><ButtonOutlined>Go to main page</ButtonOutlined></Link>
     </div>
   );
 };

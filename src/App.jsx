@@ -1,10 +1,10 @@
 import './App.scss';
-import Button, { ButtonOutlined } from './components/button/Button';
 
 import { BrowserRouter, Route } from 'react-router-dom';
 import useFetchData from './api/api';
 import Sidebar from './components/sidebar/Sidebar';
-import Card from './components/card/Card';
+import Main from './pages/Main';
+import Detail from './pages/Detail';
 
 function App() {
   const { data, setData, loading } = useFetchData(
@@ -30,22 +30,14 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-      <Sidebar sortData={sortData} />
-      <div className="content">
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <>
-            <h2>Users List</h2>
-            {data?.map((item) => (
-              <div key={item.id}>
-                <Card item={item} />
-              </div>
-            ))}
-          </>
-        )}
-      </div>
-        </BrowserRouter>
+        <Sidebar sortData={sortData} />
+        <Route exact path="/">
+          <Main data={data} loading={loading} />
+        </Route>
+        <Route path="/detail/:id">
+          <Detail/>
+        </Route>
+      </BrowserRouter>
     </div>
   );
 }

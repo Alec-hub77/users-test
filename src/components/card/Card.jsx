@@ -22,7 +22,7 @@ const Card = ({item}) => {
                 </div>
             </div>
             <div className="card__btn">
-            <Link to={`/${item.id}`}><ButtonOutlined>Details</ButtonOutlined></Link>
+            <Link to={`detail/${item.id}`}><ButtonOutlined>Details</ButtonOutlined></Link>
             </div>
         </div>
     </div>
