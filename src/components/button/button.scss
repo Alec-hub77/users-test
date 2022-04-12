@@ -1,0 +1,32 @@
+@use '../../scss/varibles' as *;
+
+.btn {
+    padding: 0.5rem 1.5rem;
+    background-color: $primary-blue;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    width: max-content;
+
+    &:hover {
+        background-color: lighten($color: $primary-blue, $amount: 10)
+    }
+}
+
+.btn-outlined {
+    padding: 0.5rem 1.5rem;
+    background-color: transparent;
+    color: $primary-blue;
+    border: 1px solid transparent;
+    outline: none;
+    cursor: pointer;
+    width: max-content;
+
+    &:hover {
+        border: 1px solid $primary-blue;
+        border-radius: 5px;
+    }
+}
+
