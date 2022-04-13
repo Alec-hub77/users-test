@@ -1,7 +1,10 @@
-import React from 'react'
+import { useState } from 'react'
 import Button from '../components/button/Button'
+import Inputs from '../components/inputs/Inputs'
 
 const Detail = () => {
+  const [disableInput, setDisableInput] = useState(true)
+
   return (
     <div className="content">
         <div className="profile">
@@ -9,9 +12,10 @@ const Detail = () => {
                 <h2>User Profile</h2>
             </div>
             <div className="profile__btn">
-                <Button>Edit</Button>
+                <Button onClick={e => setDisableInput(false)}>Edit</Button>
             </div>
         </div>
+        <Inputs disableInput={disableInput}/>
     </div>
   )
 }

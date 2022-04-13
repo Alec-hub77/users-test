@@ -1,0 +1,43 @@
+@use '../../scss/varibles' as *;
+
+.inputs {
+    width: 80%;
+    border: 1px solid $gray;
+    border-radius: 15px;
+    padding: 20px 10px;
+
+    .user__form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .inputs__item {
+            width: 50%;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            padding: 10px 20px;
+            border: 2px solid $gray;
+            border-radius: 8px;
+            
+        }
+
+        textarea {
+            width: 100%;
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: 2px solid $gray;
+            border-radius: 8px;
+            outline: 0;
+        }
+
+        label {
+            text-transform: capitalize;
+        }
+    }
+
+    
+}

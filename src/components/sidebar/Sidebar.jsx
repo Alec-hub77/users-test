@@ -11,9 +11,10 @@ const Sidebar = ({ sortData }) => {
         <div className="btns">
           <Button onClick={(e) => sortData('name')}>Sort by name</Button>
           <Button onClick={(e) => sortData('city')}>Sort by city</Button>
+          <Link to="/"><ButtonOutlined>Go to main page</ButtonOutlined></Link>
         </div>
       </div>
-      <Link to="/"><ButtonOutlined>Go to main page</ButtonOutlined></Link>
+      
     </div>
   );
 };
