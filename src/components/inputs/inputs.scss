@@ -1,43 +1,55 @@
 @use '../../scss/varibles' as *;
 
 .inputs {
-    width: 80%;
-    border: 1px solid $gray;
-    border-radius: 15px;
-    padding: 20px 10px;
+  width: 100%;
+  border: 1px solid $gray;
+  border-radius: 15px;
+  padding: 20px 10px;
+  margin-top: 15px;
 
-    .user__form {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+  .user__form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
-        .inputs__item {
-            width: 50%;
-            margin-bottom: 15px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        input {
-            padding: 10px 20px;
-            border: 2px solid $gray;
-            border-radius: 8px;
-            
-        }
-
-        textarea {
-            width: 100%;
-            margin-top: 15px;
-            padding: 10px 20px;
-            border: 2px solid $gray;
-            border-radius: 8px;
-            outline: 0;
-        }
-
-        label {
-            text-transform: capitalize;
-        }
+    .inputs__item {
+      width: 50%;
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
     }
 
-    
+    input {
+      padding: 10px 20px;
+      border: 2px solid $gray;
+      border-radius: 8px;
+    }
+
+    textarea {
+      width: 100%;
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: 2px solid $gray;
+      border-radius: 8px;
+      outline: 0;
+    }
+
+    label {
+      text-transform: capitalize;
+    }
+  }
+}
+
+.btn-submit {
+  margin-top: 10px;
+  text-align: right;
+  align-items: flex-end;
+
+  .btn-green {
+    background-color: rgb(89, 201, 89);
+
+    &:hover {
+      background-color: darken(rgb(89, 201, 89), 10);
+    }
+  }
 }

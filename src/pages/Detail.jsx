@@ -12,7 +12,9 @@ const Detail = () => {
                 <h2>User Profile</h2>
             </div>
             <div className="profile__btn">
-                <Button onClick={e => setDisableInput(false)}>Edit</Button>
+                <Button onClick={e => setDisableInput(!disableInput)}>
+                  {!disableInput ? 'Cencel' : 'Edit'}
+                </Button>
             </div>
         </div>
         <Inputs disableInput={disableInput}/>
