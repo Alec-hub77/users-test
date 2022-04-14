@@ -1,8 +1,8 @@
 import './inputs.scss'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import Button from '../button/Button'
 
-// import { inputs } from '../../assets/input'
+import { inputs } from '../../assets/input'
 import { useLocation } from 'react-router-dom'
 import useFetchData from '../../api/api'
 
@@ -44,66 +44,19 @@ const Inputs = (props) => {
     console.log(dataInput)
 
 
-    const inputs = [
-        {
-            label: 'name',
-            type: 'text',
-            name: 'name',
-            content: ''
-        },
-        {
-            label: 'username',
-            type: 'text',
-            name: 'username',
-            content: data?.username
-        },
-        {
-            label: 'email',
-            type: 'email',
-            name: 'email',
-            content: data?.email
-        },
-        {
-            label: 'street',
-            type: 'text',
-            name: 'street',
-            content: data?.address.street
-        },
-        {
-            label: 'city',
-            type: 'text',
-            name: 'city',
-            content: data?.address.city
-        },
-        {
-            label: 'zipcode',
-            type: 'text',
-            name: 'zipcode',
-            content: data?.address.zipcode
-        },
-        {
-            label: 'phone',
-            type: 'text',
-            name: 'phone',
-            content: data?.phone
-        },
-        {
-            label: 'website',
-            type: 'text',
-            name: 'website',
-            content: data?.website
-        },
-    ]
-    const hello = 'hello'
-    const [textValue, setTextValue] = useState(hello)
+
+    const [textValue, setTextValue] = useState('')
+
+   
+
+    const changeInputValue = (e) => {
+        console.log([dataInput.name])
+        setDataInput({...dataInput, [e.target.name]: e.target.value})
+    }
 
     const submitForm = (e) => {
         e.preventDefault();
-
-    }
-
-    const changeInputValue = (e) => {
-        setDataInput({...dataInput.name, [e.target.name]: e.target.value})
+        console.log(JSON.stringify(dataInput))
     }
 
 
@@ -114,7 +67,8 @@ const Inputs = (props) => {
                 inputs.map((item, i) => (
                     <div key={i} className="inputs__item">
                     <label htmlFor={item.label} key={i}>{item.label}</label>
-                    <input 
+                    <input
+                    name={item.name} 
                     type={item.type} 
                     disabled={props.disableInput}
                     value={dataInput[item.name]}
@@ -124,22 +78,6 @@ const Inputs = (props) => {
                     </div>
                 ))
             }
-            {/* <label htmlFor="name">Name</label>
-            <input type="text" name="name" value={dataInput.name} />
-            <label htmlFor="username">User name</label>
-            <input type="text" name="username"/>
-            <label htmlFor="email">Email</label>
-            <input type="email" name="email" />
-            <label htmlFor="street">Street</label>
-            <input type="text" name="street"/>
-            <label htmlFor="city">City</label>
-            <input type="text" name="city"/>
-            <label htmlFor="street">Street</label>
-            <input type="text" name="zipcode"/>
-            <label htmlFor="street">Street</label>
-            <input type="text" name="phone"/>
-            <label htmlFor="street">Street</label>
-            <input type="text" name="website"/> */}
             <label htmlFor="comments">Comment</label>
             <textarea 
             name="comments" 
