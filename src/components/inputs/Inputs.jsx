@@ -16,75 +16,32 @@ const Inputs = (props) => {
 
 
     const [dataInput, setDataInput] =useState({
-        name: '',
-        username: '',
-        email: '',
-        street: '',
-        city: '',
-        zipcode: '',
-        phone: '',
-        website: '',
+        name: data?.name,
+        username: data?.username,
+        email: data?.email,
+        street: data?.address.street,
+        city: data?.address.city,
+        zipcode: data?.address.zipcode,
+        phone: data?.phone,
+        website: data?.website,
     })
 
-    // const [inputs, setInputs] = useState([
-    //     {
-    //         label: 'name',
-    //         type: 'text',
-    //         name: 'name',
-    //         nameContent: data?.name
-    //     },
-    //     {
-    //         label: 'username',
-    //         type: 'text',
-    //         name: 'username',
-    //         content: data?.username
-    //     },
-    //     {
-    //         label: 'email',
-    //         type: 'email',
-    //         name: 'email',
-    //         content: data?.email
-    //     },
-    //     {
-    //         label: 'street',
-    //         type: 'text',
-    //         name: 'street',
-    //         content: data?.address.street
-    //     },
-    //     {
-    //         label: 'city',
-    //         type: 'text',
-    //         name: 'city',
-    //         content: data?.address.city
-    //     },
-    //     {
-    //         label: 'zipcode',
-    //         type: 'text',
-    //         name: 'zipcode',
-    //         content: data?.address.zipcode
-    //     },
-    //     {
-    //         label: 'phone',
-    //         type: 'text',
-    //         name: 'phone',
-    //         content: data?.phone
-    //     },
-    //     {
-    //         label: 'website',
-    //         type: 'text',
-    //         name: 'website',
-    //         content: data?.website
-    //     },])
+   
 
-    // useEffect(() => {
-    //     setInputs(
-    //         [...inputs, inputs[nameContent] : data?.name]
-    //     )
-    // }, [])
+    useEffect(() => {
+        setDataInput({
+            name: data?.name,
+            username: data?.username,
+            email: data?.email,
+            street: data?.address.street,
+            city: data?.address.city,
+            zipcode: data?.address.zipcode,
+            phone: data?.phone,
+            website: data?.website,
+        })
+    }, [data])
 
-    // console.log([...inputs])
-
-
+    console.log(dataInput)
 
 
     const inputs = [
@@ -92,7 +49,7 @@ const Inputs = (props) => {
             label: 'name',
             type: 'text',
             name: 'name',
-            content: data?.name
+            content: ''
         },
         {
             label: 'username',
@@ -145,6 +102,10 @@ const Inputs = (props) => {
 
     }
 
+    const changeInputValue = (e) => {
+        setDataInput({...dataInput.name, [e.target.name]: e.target.value})
+    }
+
 
   return (
     <div className="inputs">
@@ -156,7 +117,8 @@ const Inputs = (props) => {
                     <input 
                     type={item.type} 
                     disabled={props.disableInput}
-                    value={item.content}
+                    value={dataInput[item.name]}
+                    onChange={changeInputValue}
                     required
                     />
                     </div>
