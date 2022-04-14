@@ -3,16 +3,16 @@ import { useState, useEffect } from 'react'
 import Button from '../button/Button'
 
 import { inputs } from '../../assets/input'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useHistory } from 'react-router-dom'
 import useFetchData from '../../api/api'
 
 const Inputs = (props) => {
 
     const location = useLocation()
+    const history = useHistory()
     const params = location.pathname.split('/')[2]
 
     const { data } = useFetchData(`https://jsonplaceholder.typicode.com/users/${params}`)
-
 
 
     const [dataInput, setDataInput] =useState({
@@ -24,10 +24,9 @@ const Inputs = (props) => {
         zipcode: data?.address.zipcode,
         phone: data?.phone,
         website: data?.website,
+        comments: ''
     })
-
-   
-
+    
     useEffect(() => {
         setDataInput({
             name: data?.name,
@@ -41,14 +40,7 @@ const Inputs = (props) => {
         })
     }, [data])
 
-    console.log(dataInput)
-
-
-
-    const [textValue, setTextValue] = useState('')
-
    
-
     const changeInputValue = (e) => {
         console.log([dataInput.name])
         setDataInput({...dataInput, [e.target.name]: e.target.value})
@@ -57,6 +49,7 @@ const Inputs = (props) => {
     const submitForm = (e) => {
         e.preventDefault();
         console.log(JSON.stringify(dataInput))
+        history.push('/')
     }
 
 
@@ -84,8 +77,7 @@ const Inputs = (props) => {
             cols="30" 
             rows="10" 
             disabled={props.disableInput}
-            value={textValue}
-            onChange={e => setTextValue(e.target.value)}
+            onChange={changeInputValue}
             ></textarea>
             <div className="btn-submit">
             <Button className={`${props.disableInput ? 'btn-disabled' : 'btn-green'}`} disabled={props.disableInput}>Submit</Button>
