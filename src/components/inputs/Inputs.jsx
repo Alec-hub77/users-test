@@ -188,8 +188,7 @@ const Inputs = (props) => {
             onChange={e => setTextValue(e.target.value)}
             ></textarea>
             <div className="btn-submit">
-
-            <Button className="btn-green">Submit</Button>
+            <Button className={`${props.disableInput ? 'btn-disabled' : 'btn-green'}`} disabled={props.disableInput}>Submit</Button>
             </div>
         </form>
     </div>

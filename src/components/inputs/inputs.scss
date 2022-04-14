@@ -53,3 +53,8 @@
     }
   }
 }
+
+.btn-disabled {
+    background-color: $gray;
+    pointer-events: none;
+}
